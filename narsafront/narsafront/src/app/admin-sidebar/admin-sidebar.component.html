@@ -1,0 +1,90 @@
+<!-- admin-sidebar.component.html -->
+<div class="sidebar">
+  <div class="logo-details">
+
+
+    <div class="logo_name"><img src="../../../assets/narsapic.png" style="width: 200px; height: 80px; "></div>
+    <i class='bx bx-menu' id="btn"></i>
+  </div>
+  <ul class="nav-list">
+    <li>
+      <i class='bx bx-search'></i>
+      <input type="text" placeholder="Search...">
+      <span class="tooltip">Search</span>
+    </li>
+
+    <li class="menu-item">
+      <a href="#">
+        <i class='bx bx-briefcase'></i>
+        <span class="links_name">Affaires</span>
+      </a>
+      <span class="tooltip">Affaires</span>
+      <ul class="sub-menu">
+        <li><a routerLink="/admin/affaires/consulterAf" (click)="toggleConsulterAffaire()">Consulter les affaires</a></li>
+        <li><a routerLink="/admin/affaires/ceateAf" (click)="toggleCreateAffaireForm()">Créer nouvelle affaire</a></li>
+      </ul>
+    </li>
+    <li class="menu-item">
+      <a href="#">
+
+        <i class='bx bxs-user-detail '></i>
+        <span class="links_name">Gestion des avocats</span>
+      </a>
+      <span class="tooltip">Gestion des avocats</span>
+      <ul class="sub-menu">
+        <li><a routerLink="/admin/avocat/ajouterAv"  (click)="toggleAddLawyerForm()">Ajouter avocat</a></li>
+        <li><a routerLink="/admin/avocat/consulterAv"(click)="toggleConsAvocat()">Consulter les avocats</a></li>
+      </ul>
+    </li>
+
+    <li class="menu-item">
+      <a href="#">
+        <i class='bx bx-purchase-tag-alt'></i>
+        <span class="links_name">Audiences</span>
+      </a>
+      <span class="tooltip">Audiences</span>
+      <ul class="sub-menu">
+        <li><a routerLink="/admin/audiences/consulterAd">Consulter les audiences</a></li>
+        <li><a routerLink="/admin/audiences/ceateAd">Créer nouvelle audiences</a></li>
+      </ul>
+    </li>
+
+    <li class="menu-item">
+      <a href="#">
+        <i class='bx bxs-user-badge'></i>
+          <span class="links_name">Admins</span>
+      </a>
+      <span class="tooltip">Admins</span>
+      <ul class="sub-menu">
+        <li><a routerLink="/admin/admins/consulterAdm">Consulter les admins</a></li>
+        <li><a routerLink="/admin/admins/ceateAdm">Créer nouveau admin</a></li>
+      </ul>
+    </li>
+
+
+    <li>
+      <a routerLink="/admin/analyses" (click)="toggleAnalyse()">
+        <i class='bx bx-pie-chart-alt-2'></i>
+        <span class="links_name">Analyses</span>
+      </a>
+      <span class="tooltip">Analyses</span>
+    </li>
+    <li>
+      <a routerLink="/admin/reset">
+        <i class='bx bx-cog'></i>
+        <span class="links_name">Réinitialiser le mot de passe</span>
+      </a>
+      <span class="tooltip">Réinitialiser le mot de passe</span>
+    </li>
+    <li class="profile">
+      <div class="profile-details">
+
+        <div class="name_job">
+          <div class="name">Groupe Narsa</div>
+          <div class="job">Système de Gestion du Contentieux</div>
+        </div>
+      </div>
+      <i class='bx bx-log-out' id="log_out" (click)="logout()" style="color: red;"></i>
+    </li>
+  </ul>
+</div>

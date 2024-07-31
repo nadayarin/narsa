@@ -1,0 +1,39 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  height: 100%;
+  font-family: 'Poppins', sans-serif;
+}
+
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+.app-wrapper {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  margin-top: 80px; /* Adjust according to your navbar height */
+}
+
+.sidebar {
+  width: 250px;
+  background-color: #11101D;
+  position: fixed;
+  top: 80px; /* Adjust according to your navbar height */
+  bottom: 0;
+  z-index: 900;
+  overflow-y: auto;
+}
+
+.content-wrapper {
+  flex: 1;
+  margin-left: 250px; /* Adjust according to your sidebar width */
+  padding: 20px;
+  background-color: #E4E9F7;
+  overflow-y: auto;
+}

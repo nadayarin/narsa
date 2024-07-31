@@ -1,0 +1,95 @@
+<div class="container mt-5">
+  <div class="card text-center shadow-5 p-4" style=" background-color: #ECEFF1;">
+    <h1>Créer Nouvelle Affaire</h1>
+    <form #affaireForm="ngForm" (ngSubmit)="createAffaire(affaireForm)">
+
+      <!-- Objet de l'affaire -->
+      <div class="mb-3">
+        <label for="affaireObjet" class="form-label">Objet de l'affaire</label>
+        <input type="text" id="affaireObjet" name="objet" class="form-control" ngModel required />
+      </div>
+
+      <!-- Nature d'affaire -->
+      <div class="mb-3">
+        <label for="affaireNature" class="form-label">Nature d'affaire</label>
+        <input type="text" id="affaireNature" name="nature" class="form-control" ngModel required />
+      </div>
+
+      <!-- Type d'affaire -->
+      <div class="mb-3">
+        <label for="affaireType" class="form-label">Type d'affaire</label>
+        <input type="text" id="affaireType" name="type" class="form-control" ngModel required />
+      </div>
+
+      <!-- Date de Création -->
+      <div class="mb-3">
+        <label for="affaireDateCreation" class="form-label">Date de Création</label>
+        <input type="date" id="affaireDateCreation" name="dateCreation" class="form-control" ngModel [value]="today" required />
+      </div>
+
+      <!-- Plaignant -->
+      <div class="mb-3">
+        <label for="affairePlaignant" class="form-label">Plaignant</label>
+        <input type="text" id="affairePlaignant" name="plaignant" class="form-control" ngModel required />
+      </div>
+
+      <!-- Défendeur -->
+      <div class="mb-3">
+        <label for="affaireDefendeur" class="form-label">Défendeur</label>
+        <input type="text" id="affaireDefendeur" name="defendeur" class="form-control" ngModel required />
+      </div>
+
+      <!-- Tribunal -->
+      <div class="mb-3">
+        <label for="affaireTribunal" class="form-label">Tribunal</label>
+        <select id="affaireTribunal" name="tribunal" class="form-control" ngModel required>
+          <option *ngFor="let tribunal of tribunals" [value]="tribunal">{{ tribunal }}</option>
+        </select>
+      </div>
+
+      <!-- Ville -->
+      <div class="mb-3">
+        <label for="affaireVille" class="form-label">Ville</label>
+        <select id="affaireVille" name="ville" class="form-control" ngModel required>
+          <option *ngFor="let ville of villes" [value]="ville">{{ ville }}</option>
+        </select>
+      </div>
+
+      <!-- Avocat -->
+      <div class="mb-3">
+        <label for="affaireAvocat" class="form-label">Avocat</label>
+        <select id="affaireAvocat" name="avocat" class="form-control" ngModel>
+          <option value="">Aucun</option>
+          <option *ngFor="let avocat of avocats" [value]="avocat">{{ avocat }}</option>
+        </select>
+      </div>
+
+      <!-- Date de réception de l'affaire -->
+      <div class="mb-3">
+        <label for="affaireDateReception" class="form-label">Date de réception de l'affaire</label>
+        <input type="date" id="affaireDateReception" name="dateReception" class="form-control" ngModel required />
+      </div>
+
+      <!-- Priorité -->
+      <div class="mb-3">
+        <label for="affairePriorite" class="form-label">Priorité</label>
+        <select id="affairePriorite" name="priorite" class="form-control" ngModel required>
+          <option value="Basse">Basse</option>
+          <option value="Moyenne">Moyenne</option>
+          <option value="Haute">Haute</option>
+        </select>
+      </div>
+
+      <!-- Montant demandé -->
+      <div class="mb-3">
+        <label for="affaireMontant" class="form-label">Montant demandé</label>
+        <input type="number" id="affaireMontant" name="montant" class="form-control" ngModel required />
+      </div>
+
+      <!-- Etat (hidden input) -->
+      <input type="hidden" name="etat" ngModel [value]="'En cours'" />
+
+      <button type="submit" class="btn btn-primary" style="background-color: #1E88E5;">Créer l'Affaire <i class='bx bx-save'></i></button>
+    </form>
+  </div>
+</div>

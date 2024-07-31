@@ -1,0 +1,39 @@
+<div class="container mt-5">
+  <div class="card text-center" style="padding: 20px;">
+    <h1>Ajouter Avocat</h1>
+    <form [formGroup]="avocatForm" (ngSubmit)="submitForm()">
+      <div class="mb-3">
+        <label for="nom" class="form-label">Nom</label>
+        <input type="text" id="nom" formControlName="nom" class="form-control" />
+      </div>
+      <div class="mb-3">
+        <label for="prenom" class="form-label">Prénom</label>
+        <input type="text" id="prenom" formControlName="prenom" class="form-control" />
+      </div>
+      <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <input type="email" id="email" formControlName="email" class="form-control" />
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Affaires Disponibles</label>
+        <div *ngFor="let affaire of availableAffaires" class="d-flex align-items-center mb-2">
+          <span>{{ affaire.title }}</span>
+          <button type="button" class="btn btn-sm btn-success ms-2" (click)="addAffaire(affaire)">+</button>
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Affaires Associées</label>
+        <ul class="list-group">
+          <li *ngFor="let affaire of selectedAffaires; let i = index" class="list-group-item d-flex justify-content-between align-items-center">
+            {{ affaire.title }}
+            <button type="button" class="btn btn-sm btn-danger" (click)="removeAffaire(i)">-</button>
+          </li>
+        </ul>
+      </div>
+
+      <button type="submit" class="btn btn-primary">Créer Avocat</button>
+    </form>
+  </div>
+</div>

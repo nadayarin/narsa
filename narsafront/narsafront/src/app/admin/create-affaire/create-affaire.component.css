@@ -1,0 +1,36 @@
+label {
+  font-weight: 500;
+}
+
+.form-control, .form-select {
+  border-radius: 4px;
+}
+
+button.btn-primary {
+  background-color: #007bff;
+  border-color: #007bff;
+  transition: background-color 0.3s, border-color 0.3s;
+}
+
+button.btn-primary:hover {
+  background-color: #0056b3;
+  border-color: #0056b3;
+}
+.container {
+  max-width: 900px;
+}
+
+.card {
+  background-color: #ECEFF1;
+  border-radius: 8px;
+}
+
+.shadow-5 {
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+h1 {
+  color: #333;
+  font-size: 24px;
+  font-weight: 600;
+}
