@@ -8,10 +8,12 @@ describe('workspace-project App', () => {
     page = new AppPage();
   });
 
-  it('should display welcome message', () => {
-    page.navigateTo();
-    expect(page.getTitleText()).toEqual('jwt-youtube-ui app is running!');
+  it('should display welcome message', async () => {
+    await page.navigateTo();
+    const titleText = await page.getTitleText();
+    expect(titleText).toEqual('jwt-youtube-ui app is running!');
   });
+
 
   afterEach(async () => {
     // Assert that there are no errors emitted from the browser

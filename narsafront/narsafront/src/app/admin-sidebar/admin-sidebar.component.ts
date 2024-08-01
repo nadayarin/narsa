@@ -18,6 +18,7 @@ export class AdminSidebarComponent implements OnInit {
   @Output() analyse = new EventEmitter<void>();
   @Output()consulteraffaire = new EventEmitter<void>();
   activeMenu: string | null = null;
+
   constructor(
     private userAuthService: UserAuthService,
     private router: Router,
@@ -84,4 +85,6 @@ export class AdminSidebarComponent implements OnInit {
     console.log('consultation button clicked');
     this.consulteraffaire.emit();
   }
+
+
 }

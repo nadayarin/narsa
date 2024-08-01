@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-
+import {UserAuthService} from '../_services/user-auth.service';
+import {Router} from '@angular/router';
 @Component({
   selector: 'app-admin',
   templateUrl: './admin.component.html',
@@ -7,15 +8,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminComponent implements OnInit {
 
-  constructor() {}
+  constructor(private userAuthService: UserAuthService, private router: Router) {}
   showCreateAffaireForm = false;
   showAddLawyerForm = false;
   showconsavocat = false;
   showalanyse = false;
   showconsaffaire = false;
+  isAdmin: boolean = false;
+  authorized: boolean = false;
+  ngOnInit(): void {this.userAuthService.fetchRolesFromBackend().subscribe(
+    roles => {
+      this.userAuthService.setRoles(roles);
+      this.isAdmin = roles.includes('Admin');
+      this.authorized = this.isAdmin; // Set authorized based on isAdmin
+    },
+    error => {
+      console.error('Erreur lors de la récupération des rôles:', error);
+      this.isAdmin = false;
+      this.authorized = false; // Ensure authorized is set to false on error
+    }
+  );}
 
-  ngOnInit(): void {
-  }
 
 
   onCreateAffaire(): void {
@@ -41,10 +54,12 @@ export class AdminComponent implements OnInit {
     this.showconsaffaire = true;
   }
   resetForms(): void {
+    console.log('Resetting forms.');
     this.showCreateAffaireForm = false;
     this.showAddLawyerForm = false;
     this.showconsavocat = false;
     this.showalanyse = false;
     this.showconsaffaire = false;
+    console.log('Forms reset.');
   }
 }
