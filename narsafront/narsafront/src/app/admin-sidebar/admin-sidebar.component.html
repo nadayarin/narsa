@@ -13,7 +13,7 @@
       <span class="tooltip">Search</span>
     </li>
 
-    <li class="menu-item">
+    <li class="menu-item" *ngIf="userService.roleMatch(['Admin'])">
       <a href="#">
         <i class='bx bx-briefcase'></i>
         <span class="links_name">Affaires</span>
@@ -24,7 +24,7 @@
         <li><a routerLink="/admin/affaires/ceateAf" (click)="toggleCreateAffaireForm()">Créer nouvelle affaire</a></li>
       </ul>
     </li>
-    <li class="menu-item">
+    <li class="menu-item" *ngIf="userService.roleMatch(['Admin'])">
       <a href="#">
 
         <i class='bx bxs-user-detail '></i>
@@ -37,7 +37,7 @@
       </ul>
     </li>
 
-    <li class="menu-item">
+    <li class="menu-item" *ngIf="userService.roleMatch(['Admin'])">
       <a href="#">
         <i class='bx bx-purchase-tag-alt'></i>
         <span class="links_name">Audiences</span>
@@ -49,7 +49,7 @@
       </ul>
     </li>
 
-    <li class="menu-item">
+    <li class="menu-item" *ngIf="userService.roleMatch(['Admin'])">
       <a href="#">
         <i class='bx bxs-user-badge'></i>
           <span class="links_name">Admins</span>
@@ -62,15 +62,22 @@
     </li>
 
 
-    <li>
+    <li *ngIf="userService.roleMatch(['Admin'])">
       <a routerLink="/admin/analyses" (click)="toggleAnalyse()">
         <i class='bx bx-pie-chart-alt-2'></i>
         <span class="links_name">Analyses</span>
       </a>
       <span class="tooltip">Analyses</span>
     </li>
-    <li>
-      <a routerLink="/admin/reset">
+    <li *ngIf="userService.roleMatch(['User'])">
+      <a routerLink="/admin/analyses" (click)="toggleAnalyse()">
+        <i class='bx bx-pie-chart-alt-2'></i>
+        <span class="links_name">ss</span>
+      </a>
+      <span class="tooltip">ss</span>
+    </li>
+    <li >
+      <a routerLink="change-password">
         <i class='bx bx-cog'></i>
         <span class="links_name">Réinitialiser le mot de passe</span>
       </a>

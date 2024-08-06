@@ -1,3 +1,32 @@
 <app-header></app-header>
 
+<div class="col-2" *ngIf="isLoggedIn()">
+  <app-admin-sidebar
+    (addLawyer)="onAddLawyer()"
+    (consavocat)="onconsavocat()"
+    (createAffaire)="onCreateAffaire()"
+    (analyse)="onanalyse()"
+    (consulteraffaire)="onconsaffaire()">
+  </app-admin-sidebar>
+</div>
 <router-outlet></router-outlet>
+<div class="col-10 mt-5">
+  <div class="card text-center">
+    <div *ngIf="showAddLawyerForm">
+      <app-ajouter-avocat></app-ajouter-avocat>
+    </div>
+    <div *ngIf="showCreateAffaireForm">
+      <app-create-affaire></app-create-affaire>
+    </div>
+    <div *ngIf="showconsavocat">
+      <app-consulter-avocat></app-consulter-avocat>
+    </div>
+    <div *ngIf="showalanyse">
+      <app-analyse></app-analyse>
+    </div>
+    <div *ngIf="showconsaffaire">
+      <app-consulter-affaires></app-consulter-affaires>
+    </div>
+
+  </div>
+</div>

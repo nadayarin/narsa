@@ -36,10 +36,12 @@ export class UserAuthService {
   public isLoggedIn(): boolean {  // Déclaration du type de retour pour `isLoggedIn`
     return this.getRoles().length > 0 && this.getToken() !== null;
   }
+
   public fetchRolesFromBackend(): Observable<string[]> {
     const token = this.getToken();
     return this.http.get<string[]>(`${this.apiUrl}/roles`, {
       headers: { 'Authorization': `Bearer ${token}` }
     });
   }
+
 }

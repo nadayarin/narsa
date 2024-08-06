@@ -8,7 +8,7 @@ import { UserComponent } from './user/user.component';
 import { LoginComponent } from './login/login.component';
 import { HeaderComponent } from './header/header.component';
 import { ForbiddenComponent } from './forbidden/forbidden.component';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { AuthGuard } from './_auth/auth.guard';
@@ -45,6 +45,7 @@ import {ConsulterAffairesComponent} from './admin/consulter-affaires/consulter-a
     ReactiveFormsModule,
     ConsulterAvocatComponent,
     AnalyseComponent
+
   ],
   providers: [
     AuthGuard,

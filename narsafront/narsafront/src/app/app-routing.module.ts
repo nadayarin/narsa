@@ -18,11 +18,11 @@ const routes: Routes = [
   { path: 'user', component: UserComponent ,  canActivate: [AuthGuard], data : { roles: ['User']} },
   { path: 'login', component: LoginComponent },
   { path: 'forbidden', component: ForbiddenComponent },
-  { path: 'admin/avocat/ajouterAv', component: AjouterAvocatComponent , canActivate: [AuthGuard], data: { roles: ['Admin'] } },
-  { path: 'admin/affaires/createAf', component: CreateAffaireComponent, canActivate: [AuthGuard], data: { roles: ['Admin'] } },
-  { path: 'admin/avocat/consulterAv', component: ConsulterAvocatComponent, canActivate: [AuthGuard], data: { roles: ['Admin'] } },
-  { path: 'admin/analyses', component: AnalyseComponent, canActivate: [AuthGuard], data: { roles: ['Admin'] } },
-  { path: 'admin/affaires/consulterAf', component: ConsulterAffairesComponent, canActivate: [AuthGuard], data: { roles: ['Admin'] } }
+  { path: 'admin/avocat/ajouterAv', component: AjouterAvocatComponent , data: { roles: ['Admin'] } },
+  { path: 'admin/affaires/createAf', component: CreateAffaireComponent, data: { roles: ['Admin'] } },
+  { path: 'admin/avocat/consulterAv', component: ConsulterAvocatComponent, data: { roles: ['Admin'] } },
+  { path: 'admin/analyses', component: AnalyseComponent, data: { roles: ['Admin'] } },
+  { path: 'admin/affaires/consulterAf', component: ConsulterAffairesComponent, data: { roles: ['Admin'] } },
 
 
 ];
