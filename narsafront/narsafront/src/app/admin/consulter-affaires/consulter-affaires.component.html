@@ -1,1 +1,46 @@
-<p>consulter-affaires works!</p>
+<div class="container mt-5" style="padding-left:7%;">
+  <div class="card text-center shadow-5 p-4" style="padding-left:20%; background-color: #ECEFF1;">
+    <table>
+      <thead>
+      <tr>
+        <th>ID</th>
+        <th>Objet</th>
+        <th>Nature</th>
+        <th>Type</th>
+        <th>Date Création</th>
+        <th>Plaignant</th>
+        <th>Défendeur</th>
+        <th>Tribunal</th>
+        <th>Ville</th>
+        <th>Avocat</th>
+        <th>Date Réception</th>
+        <th>Priorité</th>
+        <th>État</th>
+        <th>Montant Demandé</th>
+        <th>Montant Jugé</th>
+        <th>Actions</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let affaire of affaires">
+        <td>{{ affaire.id }}</td>
+        <td>{{ affaire.objet }}</td>
+        <td>{{ affaire.nature }}</td>
+        <td>{{ affaire.typeAffaire }}</td>
+        <td>{{ affaire.dateCreation | date }}</td>
+        <td>{{ affaire.plaignant }}</td>
+        <td>{{ affaire.defendeur }}</td>
+        <td>{{ affaire.tribunal }}</td>
+        <td>{{ affaire.ville }}</td>
+        <td>{{ affaire.avocat }}</td>
+        <td>{{ affaire.dateReception | date }}</td>
+        <td>{{ affaire.priorite }}</td>
+        <td>{{ affaire.etat }}</td>
+        <td>{{ affaire.montantDemande | currency:'MAD':'symbol':'1.0-2' }}</td>
+        <td>{{ affaire.montantJuge | currency:'MAD':'symbol':'1.0-2' }}</td>
+        <td><button (click)="updateAffaire(affaire.id)">Mettre à jour</button></td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

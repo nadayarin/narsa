@@ -1,0 +1,48 @@
+/* src/app/affaire-table/affaire-table.component.css */
+.container {
+  margin: 20px;
+}
+
+.card {
+  overflow-x: auto; /* Activer le défilement horizontal si nécessaire */
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%; /* Assurez-vous que le tableau occupe toute la largeur de la carte */
+  min-width: 1200px; /* Largeur minimale pour éviter que le tableau ne devienne trop étroit */
+}
+
+table, th, td {
+  border: 1px solid #ddd;
+}
+
+th, td {
+  padding: 8px;
+  text-align: left;
+}
+
+th {
+  background-color: #f2f2f2;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #f2f2f2; /* Couleur d'arrière-plan pour les lignes paires */
+}
+
+tbody tr:hover {
+  background-color: #e9ecef; /* Couleur d'arrière-plan au survol */
+}
+
+button {
+  padding: 5px 10px;
+  color: white;
+  background-color: #007bff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}

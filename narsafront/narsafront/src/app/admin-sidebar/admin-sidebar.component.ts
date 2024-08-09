@@ -17,6 +17,7 @@ export class AdminSidebarComponent implements OnInit {
   @Output() addLawyer = new EventEmitter<void>();  @Output() consavocat = new EventEmitter<void>();
   @Output() analyse = new EventEmitter<void>();
   @Output()consulteraffaire = new EventEmitter<void>();
+  @Output()resetpassword = new EventEmitter<void>();
   activeMenu: string | null = null;
 
   constructor(
@@ -84,6 +85,10 @@ export class AdminSidebarComponent implements OnInit {
   toggleConsulterAffaire():void {
     console.log('consultation button clicked');
     this.consulteraffaire.emit();
+  }
+  toggleresetpassword():void {
+    console.log('consultation button clicked');
+    this.resetpassword.emit();
   }
 
 

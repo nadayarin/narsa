@@ -1,7 +1,29 @@
-
-
-<div class="container mt-5">
-  <div class="card text-center" style="padding: 20px;">
-    Consultation
+<div class="container mt-5" style="padding-left: 7%;">
+  <div class="card text-center shadow-5 p-4" style="background-color: #ECEFF1;">
+    <table>
+      <thead>
+      <tr>
+        <th>Nom d'utilisateur</th>
+        <th>Prénom</th>
+        <th>Nom</th>
+        <th>Cabinet</th>
+        <th>Spécialisation</th>
+        <th>Actions</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let avocat of avocats">
+        <td>{{ avocat.userName }}</td>
+        <td>{{ avocat.userFirstName }}</td>
+        <td>{{ avocat.userLastName }}</td>
+        <td>{{ avocat.cabinet }}</td>
+        <td>{{ avocat.specialisation }}</td>
+        <td>
+          <button (click)="updateAvocat(avocat)" class="btn btn-info">Mettre à jour</button>
+          <button (click)="deleteAvocat(avocat)" class="btn btn-danger" style="padding-left:3%; ">Supprimer</button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
   </div>
 </div>

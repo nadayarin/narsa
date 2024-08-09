@@ -16,16 +16,17 @@ export class AppComponent implements OnInit{
   showconsaffaire = false;
   isAdmin: boolean = false;
   authorized: boolean = false;
+  resetpassword: boolean = false;
   ngOnInit(): void {this.userAuthService.fetchRolesFromBackend().subscribe(
     roles => {
       this.userAuthService.setRoles(roles);
       this.isAdmin = roles.includes('Admin');
-      this.authorized = this.isAdmin; // Set authorized based on isAdmin
+      this.authorized = this.isAdmin;
     },
     error => {
       console.error('Erreur lors de la récupération des rôles:', error);
       this.isAdmin = false;
-      this.authorized = false; // Ensure authorized is set to false on error
+      this.authorized = false;
     }
   );}
 
@@ -38,31 +39,30 @@ export class AppComponent implements OnInit{
   onCreateAffaire(): void {
     this.resetForms();
     this.showCreateAffaireForm = true;
-
   }
 
   onAddLawyer(): void {
     console.log('onAddLawyer triggered');
     this.resetForms();
     this.showAddLawyerForm = true;
-
   }
   onconsavocat(): void {
     this.resetForms();
     this.showconsavocat = true;
-
+    window.location.reload();
   }
   onanalyse(): void {
     this.resetForms();
     this.showalanyse = true;
-
   }
   onconsaffaire(): void {
     this.resetForms();
     this.showconsaffaire = true;
-
   }
-
+  onresetpassword(): void {
+    this.resetForms();
+    this.resetpassword = true;
+  }
   resetForms(): void {
     console.log('Resetting forms.');
     this.showCreateAffaireForm = false;
@@ -70,6 +70,7 @@ export class AppComponent implements OnInit{
     this.showconsavocat = false;
     this.showalanyse = false;
     this.showconsaffaire = false;
+    this.resetpassword = false;
 
     console.log('Forms reset.');
   }

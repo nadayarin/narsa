@@ -11,6 +11,7 @@ import { AjouterAvocatComponent } from './admin/ajouter-avocat/ajouter-avocat.co
 import {ConsulterAvocatComponent} from './admin/consulter-avocat/consulter-avocat.component';
 import {AnalyseComponent} from './admin/analyse/analyse.component';
 import {ConsulterAffairesComponent} from './admin/consulter-affaires/consulter-affaires.component';
+import {ResetPasswordComponent} from "./reset-password/reset-password.component";
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -23,7 +24,7 @@ const routes: Routes = [
   { path: 'admin/avocat/consulterAv', component: ConsulterAvocatComponent, data: { roles: ['Admin'] } },
   { path: 'admin/analyses', component: AnalyseComponent, data: { roles: ['Admin'] } },
   { path: 'admin/affaires/consulterAf', component: ConsulterAffairesComponent, data: { roles: ['Admin'] } },
-
+  { path: 'reset-password', component: ResetPasswordComponent },
 
 ];
 

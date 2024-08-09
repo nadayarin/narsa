@@ -21,6 +21,7 @@ import { AjouterAvocatComponent } from './admin/ajouter-avocat/ajouter-avocat.co
 import { ConsulterAvocatComponent} from './admin/consulter-avocat/consulter-avocat.component';
 import {AnalyseComponent} from './admin/analyse/analyse.component';
 import {ConsulterAffairesComponent} from './admin/consulter-affaires/consulter-affaires.component';
+import {ResetPasswordComponent} from "./reset-password/reset-password.component";
 
 @NgModule({
   declarations: [
@@ -34,7 +35,9 @@ import {ConsulterAffairesComponent} from './admin/consulter-affaires/consulter-a
     AdminSidebarComponent,
     CreateAffaireComponent,
     AjouterAvocatComponent,
-    ConsulterAffairesComponent
+    ConsulterAffairesComponent,
+    ConsulterAvocatComponent,
+    ResetPasswordComponent
   ],
   imports: [
     BrowserModule,
@@ -43,7 +46,7 @@ import {ConsulterAffairesComponent} from './admin/consulter-affaires/consulter-a
     HttpClientModule,
     RouterModule,
     ReactiveFormsModule,
-    ConsulterAvocatComponent,
+
     AnalyseComponent
 
   ],

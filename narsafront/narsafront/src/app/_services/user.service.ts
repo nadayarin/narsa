@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { UserAuthService } from './user-auth.service';  // Correction du chemin d'importation
+import { UserAuthService } from './user-auth.service';
+import {Observable} from "rxjs";  // Correction du chemin d'importation
 
 @Injectable({
   providedIn: 'root',
@@ -45,5 +46,18 @@ export class UserService {
       }
     }
     return false;
+  }
+  resetPassword(oldPassword: string, newPassword: string): Observable<void> {
+    return this.httpclient.post<void>(`${this.PATH_OF_API}/api/password/reset`, { oldPassword, newPassword });
+  }
+  getRoles(): Observable<any> {
+    const headers = this.getAuthHeaders();
+    return this.httpclient.get(`${this.PATH_OF_API}/roles`, { headers });
+  }
+  private getAuthHeaders(): HttpHeaders {
+    const token = localStorage.getItem('authToken'); // or sessionStorage, depending on where you store the token
+    return new HttpHeaders({
+      'Authorization': `Bearer ${token}`
+    });
   }
 }

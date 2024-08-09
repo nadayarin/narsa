@@ -11,10 +11,18 @@ export class CreateAffaireComponent {
   today: string;
   tribunals = ['Tribunal A', 'Tribunal B', 'Tribunal C'];
   villes = ['Ville A', 'Ville B', 'Ville C'];
-  avocats = ['Avocat A', 'Avocat B', 'Avocat C'];
+  avocats: any[] = [];
   ngOnInit(): void {
     const currentDate = new Date();
     this.today = currentDate.toISOString().split('T')[0];
+    this.affaireService.getAvocats().subscribe(
+      (data) => {
+        this.avocats = data;
+      },
+      (error) => {
+        console.error('Erreur lors de la récupération des avocats', error);
+      }
+    );
   }
   createAffaire(form: NgForm): void {
     if (form.valid) {

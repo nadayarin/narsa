@@ -6,10 +6,13 @@
     (consavocat)="onconsavocat()"
     (createAffaire)="onCreateAffaire()"
     (analyse)="onanalyse()"
-    (consulteraffaire)="onconsaffaire()">
+    (consulteraffaire)="onconsaffaire()"
+    (resetpassword)="onresetpassword()">
   </app-admin-sidebar>
 </div>
+
 <router-outlet></router-outlet>
+
 <div class="col-10 mt-5">
   <div class="card text-center">
     <div *ngIf="showAddLawyerForm">
@@ -27,6 +30,8 @@
     <div *ngIf="showconsaffaire">
       <app-consulter-affaires></app-consulter-affaires>
     </div>
-
+    <div *ngIf="resetpassword">
+      <app-reset-password></app-reset-password>
+    </div>
   </div>
 </div>
