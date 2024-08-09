@@ -4,6 +4,7 @@ import com.narsabackend.projet.dao.RoleDao;
 import com.narsabackend.projet.dao.UserDao;
 import com.narsabackend.projet.entity.Role;
 import com.narsabackend.projet.entity.User;
+import com.narsabackend.projet.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -19,6 +20,9 @@ public class UserService {
 
     @Autowired
     private RoleDao roleDao;
+
+    @Autowired
+    private UserRepository userRepository;
 
     @Autowired
     private PasswordEncoder passwordEncoder;
@@ -68,5 +72,15 @@ public class UserService {
 
     public String getEncodedPassword(String password) {
         return passwordEncoder.encode(password);
+    }
+
+    public boolean resetPassword(String username, String oldPassword, String newPassword) {
+        User user = userRepository.findByUserName(username);
+        if (user != null && passwordEncoder.matches(oldPassword, user.getUserPassword())) {
+            user.setUserPassword(passwordEncoder.encode(newPassword));
+            userRepository.save(user);
+            return true;
+        }
+        return false;
     }
 }
